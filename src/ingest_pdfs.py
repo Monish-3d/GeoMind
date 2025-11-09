@@ -1,4 +1,5 @@
 import os , re
+import streamlit as st
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import PyPDFLoader
@@ -7,7 +8,7 @@ from langchain_community.vectorstores import Pinecone as PineconeVectorStore
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from dotenv import load_dotenv
 
-load_dotenv()
+#load_dotenv()
 
 def process_pdfs(folder , src_name):
     splitter = RecursiveCharacterTextSplitter(chunk_size = 1500 , chunk_overlap = 200)
@@ -46,7 +47,9 @@ embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-mpnet-b
 
 #------------------------------------creating vector database--------------------------
 index_name = 'georag-index'
-pinecone_api = os.getenv('PINECONE_API_KEY')
+pinecone_api = st.secrets["PINECONE_API_KEY"]
+#pinecone_api = os.getenv('PINECONE_API_KEY')
+
 
 if not pinecone_api:
     raise ValueError("Pinecone api not found!")

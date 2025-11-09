@@ -1,4 +1,5 @@
 import os
+import streamlit as st
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.prompts import PromptTemplate
 from dotenv import load_dotenv
@@ -9,10 +10,10 @@ from geo_retriever import get_spatial_context, summarize_spatial_context
 from typing import List , Tuple , Optional , Dict
 
 load_dotenv()
-
+api_key = st.secrets['GOOGLE_API_KEY']
 #--------------------------------------------------------------------------------------
 
-llm = ChatGoogleGenerativeAI(model='gemini-2.5-pro')
+llm = ChatGoogleGenerativeAI(model='gemini-2.5-pro' , api_key= api_key)
 
 def format_text_content(docs : List[Dict] , max_chars:9000)-> str:
     ''' format chunks with metadata '''
@@ -96,7 +97,7 @@ def build_prompt(user_query : str , text_block: str , spatial_block: str , year_
     return template.format(user_query = user_query, text_block = text_block, spatial_block = spatial_block ,year_range = year_range)
 
 def get_year_range(query : str) -> Optional[Tuple[int,int]]:
-    year_range_llm = ChatGoogleGenerativeAI(model= 'gemini-2.5-flash-lite',temperature=0.0)
+    year_range_llm = ChatGoogleGenerativeAI(model= 'gemini-2.5-flash-lite',temperature=0.0, api_key= api_key)
 
     template = PromptTemplate(
         template= '''Extract the YEAR RANGE from the question.
@@ -132,7 +133,7 @@ def get_year_range(query : str) -> Optional[Tuple[int,int]]:
         return None
 
 def get_location(query : str) -> str:
-    location_llm = ChatGoogleGenerativeAI(model='gemini-2.5-flash-lite',temperature=0.0)
+    location_llm = ChatGoogleGenerativeAI(model='gemini-2.5-flash-lite',temperature=0.0, api_key= api_key)
 
     template = PromptTemplate(
         template='''Extract ONLY the geographic place name from the following question.

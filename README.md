@@ -45,7 +45,7 @@ GeoMind processes the question by integrating:
 - Built-in legend overlay  
 
 ## Project Structure
-
+```bash
 GeoMind/
 │
 ├── src/
@@ -62,7 +62,7 @@ GeoMind/
 ├── .gitignore
 ├── requirements.txt
 └── README.md
-
+```
 ## Installation
 
 ### 1. Clone the repository

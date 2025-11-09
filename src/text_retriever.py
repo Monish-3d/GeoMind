@@ -1,12 +1,15 @@
 import os
+import streamlit as st
 from langchain_community.vectorstores import Pinecone as PineconeVectorStore
 from pinecone import Pinecone as PineconeClient
 from langchain_huggingface import HuggingFaceEmbeddings
 from dotenv import load_dotenv
-load_dotenv()
+
+#load_dotenv()
 
 index_name = 'georag-index'
-pinecone_api = os.getenv('PINECONE_API_KEY')
+#pinecone_api = os.getenv('PINECONE_API_KEY')
+pinecone_api = st.secrets["PINECONE_API_KEY"]
 
 pc = PineconeClient(api_key = pinecone_api)
 index = pc.Index(index_name)
