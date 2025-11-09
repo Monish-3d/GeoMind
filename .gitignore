@@ -1,0 +1,66 @@
+# ----------------------------
+# Environment & Secrets
+# ----------------------------
+.env
+*.env
+secrets.toml
+
+# ----------------------------
+# Python
+# ----------------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pkl
+*.log
+
+# Byte-compiled
+*.so
+
+# Virtual environments
+venv/
+.venv/
+env/
+env*/
+georag/
+georag_env/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints/
+
+# ----------------------------
+# Streamlit
+# ----------------------------
+.streamlit/cache/
+.streamlit/state/
+.streamlit/secrets.toml
+
+# ----------------------------
+# Local data & artifacts
+# ----------------------------
+data/
+*.shp.zip
+*.csv.zip
+*.geojson.zip
+*.shx
+*.dbf
+*.cpg
+*.prj
+*.zip
+*.pdf
+*.tiff
+*.tif
+
+# ----------------------------
+# OS-specific
+# ----------------------------
+.DS_Store
+Thumbs.db
+
+# ----------------------------
+# IDE / Editor folders
+# ----------------------------
+.vscode/
+.idea/
