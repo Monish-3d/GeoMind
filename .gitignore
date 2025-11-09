@@ -40,19 +40,8 @@ georag_env/
 # ----------------------------
 # Local data & artifacts
 # ----------------------------
-data/
-*.shp.zip
-*.csv.zip
-*.geojson.zip
-*.shx
-*.dbf
-*.cpg
-*.prj
-*.zip
-*.pdf
-*.tiff
-*.tif
 
+data/raw_pdfs
 # ----------------------------
 # OS-specific
 # ----------------------------

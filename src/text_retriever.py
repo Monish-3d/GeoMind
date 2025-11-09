@@ -5,7 +5,7 @@ from pinecone import Pinecone as PineconeClient
 from langchain_huggingface import HuggingFaceEmbeddings
 from dotenv import load_dotenv
 
-#load_dotenv()
+load_dotenv()
 
 index_name = 'georag-index'
 #pinecone_api = os.getenv('PINECONE_API_KEY')

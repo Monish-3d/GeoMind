@@ -9,8 +9,9 @@ from geo_retriever import get_spatial_context, summarize_spatial_context
 
 from typing import List , Tuple , Optional , Dict
 
-load_dotenv()
+#load_dotenv()
 api_key = st.secrets['GOOGLE_API_KEY']
+#api_key = os.getenv('GOOGLE_API_KEY')
 #--------------------------------------------------------------------------------------
 
 llm = ChatGoogleGenerativeAI(model='gemini-2.5-pro' , api_key= api_key)
