@@ -57,7 +57,7 @@ GeoMind/
 │ └── ingest_pdfs.py # PDF ingestion and embedding
 │
 ├── data/
-│ └── spatial/ # Shapefiles (ignored by Git)
+│ └── spatial/ 
 │
 ├── .gitignore
 ├── requirements.txt
